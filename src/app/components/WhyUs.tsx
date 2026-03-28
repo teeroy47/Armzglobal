@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Shield, Users, Clock, Award, Target, TrendingUp } from 'lucide-react';
+import ctaTeamImage from '../../assets/cta-team.png';
 
 export function WhyUs() {
   const achievements = [
@@ -144,31 +145,46 @@ export function WhyUs() {
 
         {/* Call to Action */}
         <motion.div
-          className="bg-gradient-to-br from-red-600 to-red-700 rounded-3xl p-12 text-center text-white shadow-2xl"
+          className="relative overflow-hidden rounded-3xl text-center text-white shadow-2xl"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Secure Your Property?
-          </h3>
-          <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
-            Get a free consultation and risk assessment from our expert security consultants
-          </p>
-          <motion.button
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="px-10 py-4 bg-white text-red-600 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us Today
-          </motion.button>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(127,29,29,0.35),_transparent_42%),linear-gradient(135deg,_#22060e_0%,_#2a0812_55%,_#3b0b0b_100%)]" />
+          <div className="relative p-3 sm:p-4">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 bg-black/20 sm:aspect-[5/4] lg:aspect-auto lg:min-h-[620px]">
+              <img
+                src={ctaTeamImage}
+                alt="ARMZ Global guards standing in front of a branded response vehicle"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(2,6,23,0.08)_0%,_rgba(2,6,23,0.24)_48%,_rgba(2,6,23,0.8)_100%)]" />
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 lg:p-8">
+                <div className="max-w-xl rounded-[1.75rem] border border-white/12 bg-black/72 p-5 text-left shadow-[0_24px_60px_rgba(0,0,0,0.32)] backdrop-blur-md sm:max-w-2xl sm:p-6">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.28em] text-red-400 sm:text-sm">
+                    Ready to Secure Your Property?
+                  </h3>
+                  <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-100 sm:text-xl">
+                    Get a free consultation and risk assessment from our expert security consultants
+                  </p>
+                  <motion.button
+                    onClick={() => {
+                      const element = document.getElementById('contact');
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="mt-6 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-xl transition-all duration-300 hover:shadow-2xl sm:px-10 sm:text-lg"
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Contact Us Today
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

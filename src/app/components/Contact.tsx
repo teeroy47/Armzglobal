@@ -12,9 +12,7 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log('Form submitted:', formData);
-    // Reset form
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
@@ -66,7 +64,6 @@ export function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,7 +72,7 @@ export function Contact() {
           >
             <h3 className="text-3xl font-bold mb-8">Contact Information</h3>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Reach out to us for comprehensive security solutions tailored to your needs. 
+              Reach out to us for comprehensive security solutions tailored to your needs.
               Our team is available 24/7 to assist you.
             </p>
 
@@ -99,35 +96,8 @@ export function Contact() {
                 </motion.a>
               ))}
             </div>
-
-            {/* Social Media */}
-            <div className="mt-8 p-6 bg-gradient-to-br from-black to-gray-900 rounded-xl text-white">
-              <h4 className="font-semibold text-lg mb-4">Follow Us</h4>
-              <div className="flex gap-3">
-                <motion.a
-                  href="https://www.facebook.com/armzglobal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-red-500 transition-colors"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  @armzglobal
-                </motion.a>
-                <span className="text-gray-500">•</span>
-                <motion.a
-                  href="https://www.instagram.com/armzglobal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-red-500 transition-colors"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  Instagram
-                </motion.a>
-              </div>
-            </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}

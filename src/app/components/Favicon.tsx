@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import faviconUrl from 'figma:asset/8b5985481dd5f1ac9b0db965d81945b6c6adc1cb.png';
+import faviconUrl from '../../assets/armz-logo.png';
 
 export function Favicon() {
   useEffect(() => {

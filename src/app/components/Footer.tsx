@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import logo from 'figma:asset/8b5985481dd5f1ac9b0db965d81945b6c6adc1cb.png';
+import logo from '../../assets/armz-logo.png';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
