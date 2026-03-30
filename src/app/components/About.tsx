@@ -3,6 +3,7 @@ import { Shield, Target, Eye, Award } from 'lucide-react';
 import aboutTeamImage from '../../assets/about-team.png';
 import missionTeamImage from '../../assets/mission-team.png';
 import visionTeamImage from '../../assets/vision-team.png';
+import logo from '../../assets/armz-logo.png';
 
 export function About() {
   const values = [
@@ -145,12 +146,22 @@ export function About() {
         </div>
 
         <motion.div
-          className="mt-16"
+          className="relative mt-16 overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,_rgba(255,255,255,1)_0%,_rgba(252,252,252,1)_100%)] px-4 py-10 sm:px-6 lg:px-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <img
+              src={logo}
+              alt=""
+              aria-hidden="true"
+              className="w-[280px] max-w-[70%] opacity-[0.05] sm:w-[420px] lg:w-[560px]"
+            />
+          </div>
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.18)_0%,_rgba(255,255,255,0.88)_58%,_rgba(255,255,255,1)_100%)]" />
+          <div className="relative">
           <h3 className="mb-12 text-center text-3xl font-bold">
             Our Core <span className="text-red-600">Values</span>
           </h3>
@@ -176,6 +187,7 @@ export function About() {
                 <p className="text-center leading-relaxed text-gray-600">{value.description}</p>
               </motion.div>
             ))}
+          </div>
           </div>
         </motion.div>
       </div>

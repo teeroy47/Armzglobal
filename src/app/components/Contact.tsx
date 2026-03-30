@@ -27,8 +27,8 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'armzglobal20@gmail.com',
-      link: 'mailto:armzglobal20@gmail.com',
+      value: 'info@armzglobal.com',
+      link: 'mailto:info@armzglobal.com',
     },
     {
       icon: Phone,
@@ -39,8 +39,8 @@ export function Contact() {
     {
       icon: MapPin,
       title: 'Address',
-      value: '1447 Cold Comfort ext, Harare',
-      link: 'https://maps.google.com/?q=1447+Cold+Comfort+ext+Harare',
+      value: '58 Elizabeth Windsor Rd, Harare',
+      link: 'https://maps.google.com/?q=58+Elizabeth+Windsor+Rd,+Harare',
     },
   ];
 
@@ -118,7 +118,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
-                    placeholder="John Doe"
+                    placeholder="Tapiwanashe Chiunye"
                   />
                 </div>
 
@@ -134,7 +134,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
-                    placeholder="john@example.com"
+                    placeholder="Tapiwanashe@example.com"
                   />
                 </div>
 
@@ -149,7 +149,7 @@ export function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
-                    placeholder="0774 625 137"
+                    placeholder="0774 123 456"
                   />
                 </div>
 

@@ -132,7 +132,7 @@ export function Footer() {
                   className="flex items-start gap-3 text-gray-400 hover:text-red-600 transition-colors"
                 >
                   <Mail className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span>armzglobal20@gmail.com</span>
+                  <span>info@armzglobal.com</span>
                 </a>
               </li>
               <li>
@@ -146,13 +146,13 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://maps.google.com/?q=1447+Cold+Comfort+ext+Harare"
+                  href="https://maps.google.com/?q=58+Elizabeth+Windsor+Rd,+Harare"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-gray-400 hover:text-red-600 transition-colors"
                 >
                   <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-                  <span>1447 Cold Comfort ext, Harare</span>
+                  <span>58 Elizabeth Windsor Rd, Harare</span>
                 </a>
               </li>
             </ul>

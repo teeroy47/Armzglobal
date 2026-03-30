@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ChevronDown, Shield, Users, Clock } from 'lucide-react';
+import { ChevronDown, Shield, Users } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import heroTeamImage from '../../assets/hero-team.png';
 
@@ -48,7 +48,6 @@ export function Hero() {
   const stats = [
     { icon: Shield, value: '24/7', label: 'Security Monitoring' },
     { icon: Users, value: '500+', label: 'Clients Protected' },
-    { icon: Clock, value: '15+', label: 'Years Experience' },
   ];
 
   return (
@@ -156,7 +155,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5"
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.75 }}
