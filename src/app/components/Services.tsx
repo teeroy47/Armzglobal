@@ -18,6 +18,10 @@ import aboutTeamImage from '../../assets/about-team.png';
 import missionTeamImage from '../../assets/mission-team.png';
 import visionTeamImage from '../../assets/vision-team.png';
 import ctaTeamImage from '../../assets/cta-team.png';
+import retailSecurityTeamImage from '../../assets/retail-security-team.jpeg';
+import idsSystemImage from '../../assets/ids-system.jpeg';
+import messengerServicesImage from '../../assets/messenger-services.jpeg';
+import investigationsTeamImage from '../../assets/investigations-team.jpg';
 
 export function Services() {
   const services = [
@@ -52,7 +56,7 @@ export function Services() {
         'Advanced self-learning video analytics technology that detects unusual behaviors and assesses potential threats. Smart detection works with 24/7 live off-site monitoring. Prevention-focused approach with early detection and warning systems for real-time security support.',
       features: ['AI-Powered Analytics', 'Off-Site Monitoring', 'Threat Detection', 'Real-Time Alerts'],
       image:
-        'https://images.pexels.com/photos/9301248/pexels-photo-9301248.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        'https://images.pexels.com/photos/9301020/pexels-photo-9301020.jpeg?auto=compress&cs=tinysrgb&w=1600',
     },
     {
       icon: ScanSearch,
@@ -60,8 +64,7 @@ export function Services() {
       description:
         'Professional installation of intrusion detection systems designed to identify unauthorised entry attempts early and trigger a rapid security response.',
       features: ['Perimeter Detection', 'Alarm Integration', 'Sensor Placement', 'Rapid Response Ready'],
-      image:
-        'https://images.pexels.com/photos/9301842/pexels-photo-9301842.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: idsSystemImage,
     },
     {
       icon: Fence,
@@ -70,7 +73,7 @@ export function Services() {
         'Integrated technology services for mantraps, razor wire, electric fences, and electric gate motors to strengthen layered physical security around your property.',
       features: ['Mantraps', 'Razor Wire', 'Electric Fences', 'Electric Gate Motors'],
       image:
-        'https://images.pexels.com/photos/33513495/pexels-photo-33513495.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        'https://images.pexels.com/photos/1690100/pexels-photo-1690100.jpeg?auto=compress&cs=tinysrgb&w=1600',
     },
     {
       icon: Package,
@@ -78,8 +81,7 @@ export function Services() {
       description:
         'Well-trained, motorised, and well-equipped security operatives collect and deliver private and confidential documents requiring maximum protection. Services can be customized based on volume and frequency of items to be delivered or collected.',
       features: ['Confidential Delivery', 'Trained Operatives', 'Motorised Service', 'Flexible Scheduling'],
-      image:
-        'https://images.pexels.com/photos/6868182/pexels-photo-6868182.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: messengerServicesImage,
     },
     {
       icon: Search,
@@ -87,8 +89,7 @@ export function Services() {
       description:
         'Independent investigation services to gather intelligence, provide additional information or evidence, and offer new perspectives on cases. Our agents provide thorough and professional investigative solutions tailored to your specific needs.',
       features: ['Intelligence Gathering', 'Evidence Collection', 'Case Analysis', 'Confidential Service'],
-      image:
-        'https://images.pexels.com/photos/9301248/pexels-photo-9301248.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: investigationsTeamImage,
     },
     {
       icon: Pickaxe,
@@ -97,7 +98,7 @@ export function Services() {
         'Dedicated mining security solutions covering site access control, personnel protection, asset safeguarding, and operational risk management for mining environments.',
       features: ['Site Access Control', 'Asset Protection', 'Risk Management', 'Operational Coverage'],
       image:
-        'https://images.pexels.com/photos/4612683/pexels-photo-4612683.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        'https://images.pexels.com/photos/2101134/pexels-photo-2101134.jpeg?auto=compress&cs=tinysrgb&w=1600',
     },
     {
       icon: Store,
@@ -105,8 +106,7 @@ export function Services() {
       description:
         'Retail-focused security services designed to reduce losses, protect staff and shoppers, and maintain visible protection across stores and shopping environments.',
       features: ['Loss Prevention', 'Customer Safety', 'Store Patrols', 'Incident Response'],
-      image:
-        'https://images.pexels.com/photos/28607934/pexels-photo-28607934.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: retailSecurityTeamImage,
     },
     {
       icon: Search,
@@ -114,8 +114,7 @@ export function Services() {
       description:
         'Discrete investigative operations to uncover internal threats, gather intelligence, and identify patterns of fraud, theft, or misconduct without disrupting operations.',
       features: ['Covert Intelligence', 'Fraud Detection', 'Evidence Gathering', 'Confidential Reporting'],
-      image:
-        'https://images.pexels.com/photos/9301842/pexels-photo-9301842.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: investigationsTeamImage,
     },
     {
       icon: LockKeyhole,
@@ -123,8 +122,7 @@ export function Services() {
       description:
         'Specialised undercover security deployments that blend into your environment while monitoring threats, supporting internal security goals, and assisting with risk mitigation.',
       features: ['Discrete Deployment', 'Threat Monitoring', 'Internal Risk Control', 'Operational Support'],
-      image:
-        'https://images.pexels.com/photos/9301248/pexels-photo-9301248.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      image: investigationsTeamImage,
     },
   ];
 
