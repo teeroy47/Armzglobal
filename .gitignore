@@ -1,2 +1,4 @@
 node_modules/
 dist/
+private/contact-config.php
+vendor-temp/

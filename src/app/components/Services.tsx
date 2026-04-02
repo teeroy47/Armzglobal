@@ -136,10 +136,10 @@ export function Services() {
           src={logo}
           alt=""
           aria-hidden="true"
-          className="w-[320px] max-w-[72%] opacity-[0.04] sm:w-[460px] lg:w-[640px]"
+          className="w-[360px] max-w-[78%] opacity-[0.08] sm:w-[560px] lg:w-[760px]"
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.12)_0%,_rgba(255,255,255,0.84)_58%,_rgba(255,255,255,1)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_0%,_rgba(255,255,255,0.72)_55%,_rgba(255,255,255,0.96)_100%)]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div

@@ -46,6 +46,11 @@ export function WhyUs() {
       title: 'Productivity Management',
       description: 'We continuously ensure we are addressing the right issues, applying the most efficient methods, and employing the proper tools.',
     },
+    {
+      icon: Shield,
+      title: 'Vigilance',
+      description: 'We maintain constant awareness, close monitoring, and rapid readiness to respond to threats before they escalate.',
+    },
   ];
 
   return (
@@ -80,14 +85,14 @@ export function WhyUs() {
               whileHover={{ y: -10, scale: 1.02 }}
             >
               <motion.div
-                className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center mx-auto mb-4"
+                className="w-16 h-16 bg-gradient-to-br from-[#FF0000] to-[#d90000] rounded-xl flex items-center justify-center mx-auto mb-4"
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               >
                 <achievement.icon className="w-8 h-8 text-white" />
               </motion.div>
               <motion.div
-                className="text-4xl font-bold mb-2 text-red-600"
+                className="text-4xl font-bold mb-2 text-[#FF0000]"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -110,7 +115,7 @@ export function WhyUs() {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-3xl font-bold text-center mb-4">
-            Our <span className="text-red-600">Approach</span>
+            Our <span className="text-[#FF0000]">Approach</span>
           </h3>
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
             To maintain high standard of performance, ARMZ GLOBAL Security integrates a plan which consists 
@@ -118,7 +123,7 @@ export function WhyUs() {
             management initiative for enhanced performance.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -134,7 +139,7 @@ export function WhyUs() {
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <feature.icon className="w-8 h-8 text-red-600" />
+                  <feature.icon className="w-8 h-8 text-[#FF0000]" />
                 </motion.div>
                 <h4 className="text-2xl font-bold mb-4">{feature.title}</h4>
                 <p className="text-gray-600 leading-relaxed">{feature.description}</p>

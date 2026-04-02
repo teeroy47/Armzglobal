@@ -2,6 +2,11 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
 
+type SubmitState = {
+  status: 'idle' | 'success' | 'error';
+  message: string;
+};
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -9,11 +14,50 @@ export function Contact() {
     phone: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>({
+    status: 'idle',
+    message: '',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitState({ status: 'idle', message: '' });
+
+    try {
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message.');
+      }
+
+      setSubmitState({
+        status: 'success',
+        message: 'Your message has been sent successfully. We will get back to you shortly.',
+      });
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Unable to send your message right now. Please try again later.';
+
+      setSubmitState({
+        status: 'error',
+        message,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,33 +89,33 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="bg-gradient-to-b from-white to-gray-50 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="mb-6 text-4xl font-bold md:text-5xl">
             Get In <span className="text-red-600">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-6" />
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="mx-auto mb-6 h-1 w-24 bg-red-600" />
+          <p className="mx-auto max-w-3xl text-xl text-gray-600">
             Ready to secure your property? Contact us today for a free consultation
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-bold mb-8">Contact Information</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <h3 className="mb-8 text-3xl font-bold">Contact Information</h3>
+            <p className="mb-8 leading-relaxed text-gray-600">
               Reach out to us for comprehensive security solutions tailored to your needs.
               Our team is available 24/7 to assist you.
             </p>
@@ -83,14 +127,14 @@ export function Contact() {
                   href={info.link}
                   target={info.icon === MapPin ? '_blank' : undefined}
                   rel={info.icon === MapPin ? 'noopener noreferrer' : undefined}
-                  className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="group flex items-start gap-4 rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
                   whileHover={{ x: 10, scale: 1.02 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <info.icon className="w-6 h-6 text-white" />
+                  <div className="h-12 w-12 flex-shrink-0 rounded-lg bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center transition-transform group-hover:scale-110">
+                    <info.icon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg mb-1">{info.title}</h4>
+                    <h4 className="mb-1 text-lg font-semibold">{info.title}</h4>
                     <p className="text-gray-600">{info.value}</p>
                   </div>
                 </motion.a>
@@ -104,10 +148,10 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-xl">
+            <form onSubmit={handleSubmit} className="rounded-2xl bg-white p-8 shadow-xl">
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label htmlFor="name" className="mb-2 block text-sm font-semibold text-gray-700">
                     Full Name *
                   </label>
                   <input
@@ -117,13 +161,13 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-red-600"
                     placeholder="Tapiwanashe Chiunye"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-gray-700">
                     Email Address *
                   </label>
                   <input
@@ -133,13 +177,13 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-red-600"
                     placeholder="Tapiwanashe@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label htmlFor="phone" className="mb-2 block text-sm font-semibold text-gray-700">
                     Phone Number
                   </label>
                   <input
@@ -148,13 +192,13 @@ export function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-red-600"
                     placeholder="0774 123 456"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-700">
+                  <label htmlFor="message" className="mb-2 block text-sm font-semibold text-gray-700">
                     Message *
                   </label>
                   <textarea
@@ -164,19 +208,32 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-red-600"
                     placeholder="Tell us about your security needs..."
                   />
                 </div>
 
+                {submitState.status !== 'idle' && (
+                  <div
+                    className={`rounded-lg px-4 py-3 text-sm ${
+                      submitState.status === 'success'
+                        ? 'bg-green-50 text-green-700'
+                        : 'bg-red-50 text-red-700'
+                    }`}
+                  >
+                    {submitState.message}
+                  </div>
+                )}
+
                 <motion.button
                   type="submit"
-                  className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-red-600 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
+                  whileHover={isSubmitting ? undefined : { scale: 1.02, y: -2 }}
+                  whileTap={isSubmitting ? undefined : { scale: 0.98 }}
                 >
-                  <Send className="w-5 h-5" />
-                  Send Message
+                  <Send className="h-5 w-5" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </motion.button>
               </div>
             </form>

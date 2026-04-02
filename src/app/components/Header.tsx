@@ -47,11 +47,11 @@ export function Header() {
         <div className="flex items-center justify-between gap-4">
           <motion.button
             onClick={() => scrollToSection('home')}
-            className="flex items-center gap-3 rounded-full bg-red-600/95 px-4 py-3 text-white shadow-[0_0_40px_rgba(220,38,38,0.25)] backdrop-blur-md"
+            className="flex items-center"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={logo} alt="ARMZ GLOBAL" className="h-12 w-12 rounded-md bg-white object-contain p-1" />
+            <img src={logo} alt="ARMZ GLOBAL" className="h-20 w-auto object-contain sm:h-24" />
           </motion.button>
 
           <nav className="hidden lg:flex items-center">
@@ -60,7 +60,7 @@ export function Header() {
                 <motion.button
                   key={index}
                   onClick={() => scrollToSection(item.id)}
-                  className="flex items-center gap-2 rounded-full px-4 py-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-red-600"
+                  className="flex items-center gap-2 rounded-full px-4 py-2 font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-[#FF0000]"
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                 >
@@ -128,7 +128,7 @@ export function Header() {
                 ))}
                 <motion.button
                   onClick={() => scrollToSection('contact')}
-                  className="mt-4 w-full rounded-xl bg-red-600 px-6 py-4 font-semibold text-white transition-colors hover:bg-red-700"
+                  className="mt-4 w-full rounded-xl bg-[#FF0000] px-6 py-4 font-semibold text-white transition-colors hover:bg-[#d90000]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}

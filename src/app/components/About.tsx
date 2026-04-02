@@ -24,8 +24,13 @@ export function About() {
     },
     {
       icon: Eye,
-      title: 'Vigilance',
-      description: '24/7 monitoring and rapid response to ensure your complete safety',
+      title: 'Reliability',
+      description: 'Providing dependable protection and consistent service delivery you can trust.',
+    },
+    {
+      icon: Award,
+      title: 'Accountability',
+      description: 'Taking responsibility for our performance, conduct, and the outcomes we deliver.',
     },
   ];
 
@@ -106,7 +111,7 @@ export function About() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(17,24,39,0.18)_0%,_rgba(17,24,39,0.52)_45%,_rgba(17,24,39,0.88)_100%)]" />
             <div className="relative flex min-h-[320px] flex-col justify-end p-6 sm:min-h-[360px] sm:p-8">
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-red-600">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#FF0000]">
                   <Target className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">Our Mission</h3>
@@ -133,7 +138,7 @@ export function About() {
             <div className="absolute inset-0 bg-[linear-gradient(180deg,_rgba(3,7,18,0.12)_0%,_rgba(3,7,18,0.45)_44%,_rgba(3,7,18,0.88)_100%)]" />
             <div className="relative flex min-h-[320px] flex-col justify-end p-6 sm:min-h-[360px] sm:p-8">
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-red-600">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#FF0000]">
                   <Eye className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">Our Vision</h3>
@@ -157,15 +162,15 @@ export function About() {
               src={logo}
               alt=""
               aria-hidden="true"
-              className="w-[280px] max-w-[70%] opacity-[0.05] sm:w-[420px] lg:w-[560px]"
+              className="w-[320px] max-w-[76%] opacity-[0.09] sm:w-[500px] lg:w-[700px]"
             />
           </div>
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.18)_0%,_rgba(255,255,255,0.88)_58%,_rgba(255,255,255,1)_100%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_0%,_rgba(255,255,255,0.72)_55%,_rgba(255,255,255,0.96)_100%)]" />
           <div className="relative">
           <h3 className="mb-12 text-center text-3xl font-bold">
-            Our Core <span className="text-red-600">Values</span>
+            Our Core <span className="text-[#FF0000]">Values</span>
           </h3>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -177,7 +182,7 @@ export function About() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <motion.div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-red-600 to-red-700"
+                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF0000] to-[#d90000]"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
