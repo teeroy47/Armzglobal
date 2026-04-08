@@ -18,7 +18,7 @@ export function WhyUs() {
     },
     {
       icon: Clock,
-      value: 'Years',
+      value: 'Experience',
       label: 'Police, Military & Intelligence',
       description: 'We have years of experience in police, military and intelligence operations.',
     },
